@@ -31,11 +31,10 @@ function ProductDetails() {
           </div>
           <div>
             <TextField
-              // label="Enter Quantity"
-              // type="number"
+              type="number"
               defaultValue={inputQuantity}
               helperText="Enter Quantity"
-              onInput={(e) => (inputQuantity = e.target.value)}
+              onInput={(e) => e.target.value < 1 ? e.target.value = 1 : inputQuantity = e.target.value}
             />
           </div>
           <div style={{ padding: "5%" }}>
