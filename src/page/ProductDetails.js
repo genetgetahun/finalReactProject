@@ -5,15 +5,15 @@ import { CartContext } from "../contexts/CartContext";
 import { useLocation } from "react-router-dom";
 
 function ProductDetails() {
-  const { cart, addProduct } = useContext(CartContext);
+  const { addProduct } = useContext(CartContext);
   let inputQuantity = 1;
-  const location = useLocation();
+  const location = useLocation(); // represent and hold all object of that URL
   let { product } = location.state;
 
   return (
-    <Card sx={{ maxWidth: 345 }}>
+    <Card sx={{ maxWidth: 345 }} className="mainPage">
       <div style={{ display: "flex" }}>
-        <img style={{ width: "30%" }} src={product.image} alt="" />
+        <img style={{ width: "30%", height: "10%" }} src={product.image} alt="" />
         <div style={{ margin: "50px" }}>
           <div>
             <Typography gutterBottom variant="h5" component="div">

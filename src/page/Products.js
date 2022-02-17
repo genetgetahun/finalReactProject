@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from "react";
+import React, { useContext, useEffect } from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product";
-import ProductDetails from "./ProductDetails";
+import { ProductContext } from "../contexts/ProductContext";
 
 // const products = [
 //   {
@@ -22,28 +22,21 @@ import ProductDetails from "./ProductDetails";
 //   },
 // ];
 function Products() {
+  const { products, searchedProducts, setSearchedProducts } =
+    useContext(ProductContext);
 
-  const [products, setProducts] = useState([]);
+  let productsList = [];
 
-  useEffect(() => {
-    const getProducts = async () => {
-      fetch("https://fakestoreapi.com/products/")
-        .then((res) => res.json())
-        .then((json) => {
-          console.log(json);
-          setProducts(json);
-        });
-    };
-    getProducts();
-  }, []);
+  if (searchedProducts?.length > 0) {
+    productsList = searchedProducts;
+  } else {
+    productsList = products;
+  }
 
   return (
-    <main>
-      {/* <ProductDetails product={products} /> */}
-
-      <Grid container justify="center" spacing={4}>
-        {/* <ProductDetails product={products} />  */}
-        {products.map((product) => (
+    <main className="mainPage">
+      <Grid container justifyContent="center" spacing={4}>
+        {productsList.map((product) => (
           <Grid item key={product.id} xs={12} sm={6} md={4} lg={3}>
             <Product product={product} />
           </Grid>

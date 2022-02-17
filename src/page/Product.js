@@ -1,12 +1,13 @@
 import React from "react";
-import { useNavigate, useLocation } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { Rating } from "@mui/material";
 
 function Product({ product }) {
   const navigate = useNavigate();
+
   function itemClicked() {
-    console.log("Selected PRoduct id : ", product.id);
     let path = `/products/${product.id}`;
-    navigate(path, { state: { product: product } });
+    navigate(path, { state: { product: product } }); // pass product as props for product detail
   }
   return (
     <div className="container" onClick={itemClicked}>
@@ -16,11 +17,9 @@ function Product({ product }) {
         ${product.price}
       </div>
 
-      {/* <CardActionArea disableSpacing style={{display:'flex',justifyContent:'flex-end'}}>
-       <IconButton aria-label="add to card">
-         <AddShoppingCart/>
-       </IconButton>
-       </CardActionArea> */}
+      <div>
+        <Rating disabled value={product.rating.rate} />
+      </div>
     </div>
   );
 }

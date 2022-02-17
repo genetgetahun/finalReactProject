@@ -1,8 +1,16 @@
-import React from 'react';
+import React from "react";
 
-function NotFound() {
-  return
-   <div>the page can't be found </div>;
-}
+const NotFound = () => {
+  const center = {
+    textAlign: "center",
+  };
+
+  return (
+    <div style={center}>
+      <h1>Page Not Found</h1>
+      <p>The Page You are looking for does not exist.</p>
+    </div>
+  );
+};
 
 export default NotFound;
