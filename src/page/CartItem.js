@@ -35,7 +35,7 @@ function CartItem({ product }) {
       </div>
       <div className="col-sm-2 p-2">
         <p className="mb-0">
-          Total: 
+          Total:
           <CurrencyFormatter
             decimalScale={2}
             value={product.quantity * product.product.price}

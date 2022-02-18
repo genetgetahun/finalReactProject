@@ -10,7 +10,7 @@ import {
 } from "react-bootstrap";
 import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 import SearchIcon from "@material-ui/icons/Search";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { CartContext } from "../contexts/CartContext";
 import { ProductContext } from "../contexts/ProductContext";
 
@@ -18,6 +18,7 @@ function Header() {
   const { products, setSearchedProducts } = useContext(ProductContext);
   const { totalQuantity } = useContext(CartContext);
   const [searchInput, setSearchInput] = useState("");
+  const navigate = useNavigate();
 
   const categories = Array.from(new Set(products.map((item) => item.category)));
   categories.push("All");
@@ -44,6 +45,8 @@ function Header() {
       filtered = products.filter((item) => item.category == selected);
       setSearchedProducts(filtered);
     }
+
+    navigate("/products");
   };
 
   return (

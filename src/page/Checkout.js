@@ -62,7 +62,7 @@ function Checkout() {
                   <div className="col-sm-2 p-2">
                     <h5 className="mb-1">{product.product.title}</h5>
                     <p className="mb-1">
-                      Price:{" "}
+                     $ Price:{" "}
                       <CurrencyFormatter
                         value={product.product.price}
                         displayType={"text"}
@@ -76,7 +76,8 @@ function Checkout() {
                   </div>
                   <div className="col-sm-2 p-2 text-center">
                     <p className="mb-0">
-                      Total: {product.quantity * product.product.price}
+                      Total: ${product.quantity * product.product.price}
+                     
                     </p>
                   </div>
                 </div>
@@ -89,9 +90,9 @@ function Checkout() {
         {cart.length > 0 && (
           <div className="col-sm-2 p-3">
             <div className="card card-body">
-              <p className="mb-1">Total Items</p>
-              <h4 className=" mb-3 txt-right">{itemCount}</h4>
-              <p className="mb-1">Total Payment</p>
+              <p className="mb-1"><strong>Total Items</strong></p>
+              <h4 className=" mb-3 txt-right"> <strong>{itemCount}</strong></h4>
+              <p className="mb-1"> <strong>Total Payment</strong></p>
               <h3 className="m-0 txt-right">
                 {" "}
                 <CurrencyFormatter

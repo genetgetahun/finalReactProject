@@ -6,6 +6,7 @@ import ProductDetails from "./page/ProductDetails";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
 import NotFound from "./component/NotFound";
 import Cart from "./page/Cart";
+import Footer from "./component/Footer";
 function App() {
   return (
     <Router>
@@ -18,6 +19,7 @@ function App() {
         <Route path="/" element={<Products />} />
         <Route path="*" element={<NotFound />} />
       </Routes>
+      <Footer/>
     </Router>
   );
 }

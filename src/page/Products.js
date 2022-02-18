@@ -1,4 +1,4 @@
-import React, { useContext, useEffect } from "react";
+import React, { useContext } from "react";
 import { Grid } from "@material-ui/core";
 import Product from "./Product";
 import { ProductContext } from "../contexts/ProductContext";
@@ -22,8 +22,7 @@ import { ProductContext } from "../contexts/ProductContext";
 //   },
 // ];
 function Products() {
-  const { products, searchedProducts, setSearchedProducts } =
-    useContext(ProductContext);
+  const { products, searchedProducts } = useContext(ProductContext);
 
   let productsList = [];
 

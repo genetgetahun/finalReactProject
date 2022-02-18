@@ -3,17 +3,22 @@ import React, { useContext } from "react";
 import { Card, Typography, Button, TextField } from "@material-ui/core";
 import { CartContext } from "../contexts/CartContext";
 import { useLocation } from "react-router-dom";
+import Suggestions from "./Suggestions";
 
 function ProductDetails() {
   const { addProduct } = useContext(CartContext);
   let inputQuantity = 1;
   const location = useLocation(); // represent and hold all object of that URL
-  let { product } = location.state;
+  let { product, suggestedProducts } = location.state;
 
   return (
     <Card sx={{ maxWidth: 345 }} className="mainPage">
       <div style={{ display: "flex" }}>
-        <img style={{ width: "30%", height: "10%" }} src={product.image} alt="" />
+        <img
+          style={{ width: "30%", height: "10%" }}
+          src={product.image}
+          alt=""
+        />
         <div style={{ margin: "50px" }}>
           <div>
             <Typography gutterBottom variant="h5" component="div">
@@ -34,7 +39,11 @@ function ProductDetails() {
               type="number"
               defaultValue={inputQuantity}
               helperText="Enter Quantity"
-              onInput={(e) => e.target.value < 1 ? e.target.value = 1 : inputQuantity = e.target.value}
+              onInput={(e) =>
+                e.target.value < 1
+                  ? (e.target.value = 1)
+                  : (inputQuantity = e.target.value)
+              }
             />
           </div>
           <div style={{ padding: "5%" }}>
@@ -47,6 +56,12 @@ function ProductDetails() {
             </Button>
           </div>
         </div>
+      </div>
+      <div>
+        <Typography gutterBottom variant="h4" component="div">
+          More to consider
+        </Typography>
+        <Suggestions productsList={suggestedProducts} />
       </div>
     </Card>
   );

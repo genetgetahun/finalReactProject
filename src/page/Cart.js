@@ -10,6 +10,7 @@ function Cart() {
     <div>
       <div className="row no-gutters justify-content-center">
         <div className="col-sm-9 p-3">
+          {/* if cart is not empty render cart items by calling cartitem component */}
           {cart.length > 0 ? (
             <div>
               {cart.map((item) => (
