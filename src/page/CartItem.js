@@ -22,6 +22,7 @@ function CartItem({ product }) {
         <p className="mb-1">
           Price:{" "}
           <CurrencyFormatter
+            decimalScale={2}
             value={product.product.price}
             displayType={"text"}
             thousandSeparator={true}
@@ -34,7 +35,14 @@ function CartItem({ product }) {
       </div>
       <div className="col-sm-2 p-2">
         <p className="mb-0">
-          Total: ${product.quantity * product.product.price}
+          Total: 
+          <CurrencyFormatter
+            decimalScale={2}
+            value={product.quantity * product.product.price}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"$"}
+          />
         </p>
       </div>
       <div className="col-sm-1 p-2">
