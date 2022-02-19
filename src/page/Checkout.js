@@ -68,6 +68,8 @@ function Checkout() {
                         displayType={"text"}
                         thousandSeparator={true}
                         prefix={"$"}
+                        decimalScale={2}
+                        fixedDecimalScale={true}
                       />
                     </p>
                   </div>
@@ -75,8 +77,16 @@ function Checkout() {
                     <p className="mb-0">Qty: {product.quantity}</p>
                   </div>
                   <div className="col-sm-2 p-2 text-center">
-                    <p className="mb-0">
-                      Total: ${product.quantity * product.product.price}
+                    <p className="mb-0">Total: 
+                    <CurrencyFormatter
+                         value={ product.quantity * product.product.price}
+                        displayType={"text"}
+                        thousandSeparator={true}
+                        prefix={"$"}
+                        decimalScale={2}
+                        fixedDecimalScale={true}
+                      />
+                     
                      
                     </p>
                   </div>
@@ -101,6 +111,7 @@ function Checkout() {
                   displayType={"text"}
                   thousandSeparator={true}
                   prefix={"$"}
+                  fixedDecimalScale={true}
                 />
               </h3>
             </div>

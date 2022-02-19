@@ -27,6 +27,7 @@ function CartItem({ product }) {
             displayType={"text"}
             thousandSeparator={true}
             prefix={"$"}
+            fixedDecimalScale={true}
           />
         </p>
       </div>
@@ -42,6 +43,7 @@ function CartItem({ product }) {
             displayType={"text"}
             thousandSeparator={true}
             prefix={"$"}
+            fixedDecimalScale={true}
           />
         </p>
       </div>

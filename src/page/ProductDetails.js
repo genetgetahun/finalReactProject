@@ -3,6 +3,7 @@ import React, { useContext } from "react";
 import { Card, Typography, Button, TextField } from "@material-ui/core";
 import { CartContext } from "../contexts/CartContext";
 import { useLocation } from "react-router-dom";
+import CurrencyFormatter from "react-currency-format";
 import Suggestions from "./Suggestions";
 
 function ProductDetails() {
@@ -24,9 +25,15 @@ function ProductDetails() {
             <Typography gutterBottom variant="h5" component="div">
               {product.title}
             </Typography>
-            <Typography gutterBottom variant="h4" component="div">
-              ${product.price}
-            </Typography>
+            <CurrencyFormatter
+            decimalScale={2}
+            value={product.price}
+            displayType={"text"}
+            thousandSeparator={true}
+            prefix={"$"}
+            fixedDecimalScale={true}
+          />
+            
             <Typography gutterBottom variant="h6" component="div">
               {product.category}
             </Typography>
