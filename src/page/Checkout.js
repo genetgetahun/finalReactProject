@@ -44,7 +44,7 @@ function Checkout() {
   };
 
   return (
-    <div className="checkoutContainer">
+    <div>
       <div className="row no-gutters justify-content-center">
         <div className="col-sm-9 p-3">
           {cart.length > 0 ? (
